@@ -81,6 +81,9 @@ while option != 3:
     if str(option) == "1":
         print("Ingresa el mensaje que deseas encriptar: ")
         mensaje = input()
+        mensaje = list(mensaje.lower())
+        mensaje = [letra.replace(' ', '').replace('á',"aa").replace('é',"ee").replace('í',"ii").replace('ó',"oo").replace('ú',"uu")for letra in mensaje]
+        mensaje = "".join(mensaje)
         print("Ingresa la clave con el cual lo vas a encriptar: ")
         clave = input()
         res = vigenere_encrypt(mensaje,clave)

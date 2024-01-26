@@ -29,6 +29,8 @@ def vigenere_encrypt(mensaje,clave):
                         # print("vigenere_table[k][l]: ",vigenere_table[k][l])
                         # print("===============================")
                         encrypt_messaje.append(vigenere_table[k][l])
+            else:
+                encrypt_messaje.append(mensaje_list[j])
                         
     # print(mensaje_list)
     # print(new_clave_list)
@@ -63,6 +65,8 @@ def vigenere_desencrypt(mensaje,clave):
                         # print("vigenere_table[k][l]: ",vigenere_table[k][l])
                         # print("===============================")
                         desencrypt_messaje.append(vigenere_table[0][l])
+            else:
+                desencrypt_messaje.append(mensaje_list[j])
                         
     desencrypt_messaje = "".join(desencrypt_messaje)
     

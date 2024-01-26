@@ -6,10 +6,13 @@ def afin_encrypt(word, a_value, b_value):
     word = list(word.upper())
     # print(word)
     for x in word:
-        indice = abecedario.index(x)
-        position = (a_value*indice) + b_value
-        position = position % len(abecedario) 
-        encripted.append(abecedario[position])
+        if x in abecedario:
+            indice = abecedario.index(x)
+            position = (a_value*indice) + b_value
+            position = position % len(abecedario) 
+            encripted.append(abecedario[position])
+        else:
+            encripted.append(x)
     # print(encripted)
     encripted = "".join(encripted)
     return encripted
@@ -18,11 +21,17 @@ def afin_desencrtypt(word, a_value, b_value):
     encripted = []
     word = list(word.upper())
     for x in word:
-        indice = abecedario.index(x)
-        a_value = pow(a_value, -1, len(abecedario))
-        position = (a_value * indice) - b_value
-        position = position % len(abecedario) 
-        encripted.append(abecedario[position])
+        if x in abecedario:
+            indice = abecedario.index(x)
+            print("avalue: ", a_value)
+            # a_inverse = (a_value**-1) % len(abecedario)
+            a_inverse = pow(a_value, -1, len(abecedario))
+            print("ainverse: ", a_inverse)
+            print()
+            position = (a_inverse * (indice - b_value)) % len(abecedario) 
+            encripted.append(abecedario[position])
+        else:
+            encripted.append(x)
     encripted = "".join(encripted)
     return encripted
 

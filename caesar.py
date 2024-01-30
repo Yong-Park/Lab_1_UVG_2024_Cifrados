@@ -41,7 +41,7 @@ while option != "3":
         print("Ingresa el mensaje que deseas encriptar: ")
         word = input()
         word = list(word.lower())
-        word = [letra.replace(' ', '').replace('á',"aa").replace('é',"ee").replace('í',"ii").replace('ó',"oo").replace('ú',"uu")for letra in word]
+        word = [letra.replace('á',"aa").replace('é',"ee").replace('í',"ii").replace('ó',"oo").replace('ú',"uu")for letra in word]
         word = "".join(word)
         print("Ingresa la cantidad de desplazamiento: ")
         desplazamiento = input()

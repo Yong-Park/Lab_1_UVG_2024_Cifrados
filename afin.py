@@ -23,11 +23,11 @@ def afin_desencrtypt(word, a_value, b_value):
     for x in word:
         if x in abecedario:
             indice = abecedario.index(x)
-            print("avalue: ", a_value)
+            # print("avalue: ", a_value)
             # a_inverse = (a_value**-1) % len(abecedario)
             a_inverse = pow(a_value, -1, len(abecedario))
-            print("ainverse: ", a_inverse)
-            print()
+            # print("ainverse: ", a_inverse)
+            # print()
             position = (a_inverse * (indice - b_value)) % len(abecedario) 
             encripted.append(abecedario[position])
         else:

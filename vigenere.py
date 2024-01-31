@@ -19,22 +19,23 @@ def vigenere_encrypt(mensaje,clave):
     #comenzar a encriptar
     for j in range(len(mensaje_list)):
         for k in range(len(vigenere_table)):
-            if mensaje_list[j] == vigenere_table[k][0]:
-                # print("mensaje_list[j]: ",mensaje_list[j])
-                # print("vigenere_table[k][0]: ",vigenere_table[k][0])
-                # print("")
-                for l in range(len(vigenere_table[k])):
-                    if new_clave_list[j] == vigenere_table[0][l]:
-                        # print("new_clave_list[j]: ", new_clave_list[j])
-                        # print("vigenere_table[k][l]: ",vigenere_table[k][l])
-                        # print("===============================")
-                        encrypt_messaje.append(vigenere_table[k][l])
+            if mensaje_list[j] in vigenere_table[0]:
+                if mensaje_list[j] == vigenere_table[k][0]:
+                    # print("mensaje_list[j]: ",mensaje_list[j])
+                    # print("vigenere_table[k][0]: ",vigenere_table[k][0])
+                    # print("")
+                    for l in range(len(vigenere_table[k])):
+                        if new_clave_list[j] == vigenere_table[0][l]:
+                            # print("new_clave_list[j]: ", new_clave_list[j])
+                            # print("vigenere_table[k][l]: ",vigenere_table[k][l])
+                            # print("===============================")
+                            encrypt_messaje.append(vigenere_table[k][l])
             else:
                 encrypt_messaje.append(mensaje_list[j])
                         
     # print(mensaje_list)
     # print(new_clave_list)
-    # print(encrypt_messaje)
+    print(encrypt_messaje)
     encrypt_messaje = "".join(encrypt_messaje)
     
     return encrypt_messaje
@@ -54,17 +55,18 @@ def vigenere_desencrypt(mensaje,clave):
     #comenzar a desencriptar
     for j in range(len(mensaje_list)):
         for k in range(len(vigenere_table)):
-            if new_clave_list[j] == vigenere_table[k][0]:
-                # print("new_clave_list[j]: ",new_clave_list[j])
-                # print("vigenere_table[k][0]: ",vigenere_table[k][0])
-                # print("")
-                for l in range(len(vigenere_table[k])):
-                    if mensaje_list[j] == vigenere_table[k][l]:
-                        # print("vigenere_table[k]: ", vigenere_table[k])
-                        # print("mensaje_list[j]: ", mensaje_list[j])
-                        # print("vigenere_table[k][l]: ",vigenere_table[k][l])
-                        # print("===============================")
-                        desencrypt_messaje.append(vigenere_table[0][l])
+            if mensaje_list[j] in vigenere_table[0]:
+                if new_clave_list[j] == vigenere_table[k][0]:
+                    # print("new_clave_list[j]: ",new_clave_list[j])
+                    # print("vigenere_table[k][0]: ",vigenere_table[k][0])
+                    # print("")
+                    for l in range(len(vigenere_table[k])):
+                        if mensaje_list[j] == vigenere_table[k][l]:
+                            # print("vigenere_table[k]: ", vigenere_table[k])
+                            # print("mensaje_list[j]: ", mensaje_list[j])
+                            # print("vigenere_table[k][l]: ",vigenere_table[k][l])
+                            # print("===============================")
+                            desencrypt_messaje.append(vigenere_table[0][l])
             else:
                 desencrypt_messaje.append(mensaje_list[j])
                         
@@ -86,7 +88,7 @@ while option != 3:
         print("Ingresa el mensaje que deseas encriptar: ")
         mensaje = input()
         mensaje = list(mensaje.lower())
-        mensaje = [letra.replace('á',"aa").replace('é',"ee").replace('í',"ii").replace('ó',"oo").replace('ú',"uu")for letra in mensaje]
+        mensaje = [letra.replace(' ', '').replace('á',"aa").replace('é',"ee").replace('í',"ii").replace('ó',"oo").replace('ú',"uu")for letra in mensaje]
         mensaje = "".join(mensaje)
         print("Ingresa la clave con el cual lo vas a encriptar: ")
         clave = input()

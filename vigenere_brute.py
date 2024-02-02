@@ -51,3 +51,5 @@ with open('output.txt', 'w') as file:
     # Iniciar con la lista try_wordlist [s, a, a, a] y generar combinaciones
     for length in range(4, 5):
         generate_combinations(try_wordlist, length, file)
+
+#bees

@@ -41,21 +41,32 @@ try_wordlist = ['a']
 print("Ingrese la palabra: ")
 word = input()
 
-def generate_combinations(try_wordlist, length):
+def generate_combinations(try_wordlist, length, file):
     if len(try_wordlist) == length:
         wordlist = "".join(try_wordlist)
         decrypted_message = vigenere_desencrypt(word, wordlist)
-        print(f'Try Wordlist: {wordlist}, Decrypted Message: {decrypted_message}')
+        output = f'Try Wordlist: {wordlist}, Decrypted Message: {decrypted_message}\n'
+        print(output)
+        file.write(output)
+
         return
 
     for char in range(ord('a'), ord('z') + 1):
         try_wordlist.append(chr(char))
-        generate_combinations(try_wordlist, length)
+        generate_combinations(try_wordlist, length,file)
         try_wordlist.pop()
 
-# Generar todas las combinaciones posibles de letras en la clave
-for length in range(1, 4):
-    generate_combinations([], length)
+with open('output.txt', 'w') as file:
+    # Generar todas las combinaciones posibles de letras en la clave
+    for length in range(4, 5):
+        generate_combinations([], length, file)
+
+
+# # Generar todas las combinaciones posibles de letras en la clave
+# for length in range(1, 4):
+#     generate_combinations([], length)
 
 
 
+#babaje
+#kasiski

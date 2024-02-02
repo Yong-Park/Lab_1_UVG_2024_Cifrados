@@ -96,3 +96,4 @@ for _ in range(len(list_abcedario)):
     print(str(new_index % len(list_abcedario)) + " : " + result)
     new_index = new_index + 1
 
+

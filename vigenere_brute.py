@@ -42,7 +42,7 @@ def generate_combinations(try_wordlist, length, file):
         generate_combinations(try_wordlist, length, file)
         try_wordlist.pop()
 
-try_wordlist = ['s']
+try_wordlist = ['b','e']
 
 print("Ingrese la palabra: ")
 word = input()
